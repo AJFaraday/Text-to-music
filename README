@@ -1,0 +1,13 @@
+Text to Music
+by Andrew Faraday
+contributors:
+
+Initally as a way to learn ruby, this converts test input to a stream of messages for PureData to read and sonify. Currently it asks for a speed, then an empty text prompt. Which is then converted into audio.
+
+To use:
+ Open ruby_interact.pd in puredata
+ Open asciipd5.rb in ruby
+
+Future intent:
+ Stream twitter messages with a given search term, sonify in real time.
+ Connect to Pidgin or IRC, musical chat client. 
