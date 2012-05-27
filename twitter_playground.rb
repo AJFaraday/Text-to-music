@@ -11,19 +11,19 @@ require 'tweetstream'
 
 TWITTER_USERNAME = 'marmitejunction'
 puts "Using twitter username '#{TWITTER_USERNAME}', Password:"
-TWITTER_PASSWORD = gets
+password = gets.chomp
 
 TweetStream.configure do |config|
   config.username = TWITTER_USERNAME
-  config.password = TWITTER_PASSWORD
+  config.password = password
   config.auth_method = :basic
 end
 
 ts = TweetStream::Client.new
 puts 'initialization finished'
-ts.track('#twitter') do |status|
+ts.track('fail') do |status|
   string = "[#{status.user.screen_name}] #{status.text}"
   puts ''
-  puts string
+#  puts string
   Character.send_string(string, sock, 0.1)
 end 
