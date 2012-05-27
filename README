@@ -6,7 +6,7 @@ Initally as a way to learn ruby, this converts test input to a stream of message
 
 To use:
  Open ruby_interact.pd in puredata
- Open asciipd5.rb in ruby
+ Open manual_input.rb in ruby
 
 Future intent:
  Stream twitter messages with a given search term, sonify in real time.
