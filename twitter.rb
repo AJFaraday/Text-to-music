@@ -1,5 +1,16 @@
+# default twitter username, uncomment and set name to skip typing username
+# TWITTER_USERNAME = 'yourusername'
+
+if ARGV
+  SEARCH = ARGV
+else
+  # Default search term
+  SEARCH = ['fail']
+end
+
 require 'rubygems'
 # shared connection to PureData 
+require 'highline/import'
 require 'socket'
 require 'character'
 hostname = '127.0.0.1'
@@ -9,9 +20,14 @@ sock = TCPSocket.open hostname, port
 # Twitter streaming api gem
 require 'tweetstream' 
 
-TWITTER_USERNAME = 'marmitejunction'
-puts "Using twitter username '#{TWITTER_USERNAME}', Password:"
-password = gets.chomp
+unless defined?(TWITTER_USERNAME)
+  TWITTER_USERNAME = ask("Twitter Username:").chomp
+end
+
+puts "Using twitter username '#{TWITTER_USERNAME}'."
+#password = gets.chomp
+password = ask("Enter password: ") { |q| q.echo = false }
+password = password.chomp
 
 TweetStream.configure do |config|
   config.username = TWITTER_USERNAME
@@ -21,9 +37,9 @@ end
 
 ts = TweetStream::Client.new
 puts 'initialization finished'
-ts.track('fail') do |status|
+
+ts.track(SEARCH) do |status|
   string = "[#{status.user.screen_name}] #{status.text}"
   puts ''
-#  puts string
   Character.send_string(string, sock, 0.1)
 end 
