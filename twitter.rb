@@ -40,8 +40,26 @@ ts = TweetStream::Client.new
 puts 'initialization finished'
 puts "search: #{SEARCH.join(', ')}"
 
+trap("INT") do
+  puts "got signal INT"
+  ts.stop
+  return
+end 
+
+interrupted = false
+trap("INT") do 
+  interrupted = true
+end
+
 ts.track(SEARCH) do |status|
+  if interrupted == true
+    ts.stop
+    return
+  end
   string = "[#{status.user.screen_name}] #{status.text}"
   puts ''
-  Character.send_string(string, sock, 0.1)
-end 
+  Character.send_string(string, sock, 0.15)
+end
+
+
+ 
