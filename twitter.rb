@@ -36,29 +36,26 @@ TweetStream.configure do |config|
   config.auth_method = :basic
 end
 
+# The actual code for the stream
 ts = TweetStream::Client.new
 puts 'initialization finished'
 puts "search: #{SEARCH.join(', ')}"
 
-trap("INT") do
-  puts "got signal INT"
-  ts.stop
-  return
-end 
 
-interrupted = false
-trap("INT") do 
-  interrupted = true
-end
+#interrupted = false
+#trap("INT") do 
+#  interrupted = true
+#end
 
 ts.track(SEARCH) do |status|
-  if interrupted == true
-    ts.stop
-    return
-  end
+#  if interrupted == true
+#    ts.stop
+#    return
+#  end
   string = "[#{status.user.screen_name}] #{status.text}"
   puts ''
   Character.send_string(string, sock, 0.15)
+  puts ''
 end
 
 

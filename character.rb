@@ -11,7 +11,8 @@ class Character
     if input.is_a?(Integer)
       self.ascii = number
     elsif input.is_a?(String)
-      self.ascii = input[0]
+      #self.ascii = input[0]
+      self.ascii = input.bytes.first
     else
       raise WrongInput
     end
