@@ -1,13 +1,12 @@
 # default twitter username, uncomment and set name to skip typing username
 # TWITTER_USERNAME = 'yourusername'
 # default seach term if not set in the command line
-DEFAULT_SEARCH = ['fail']
+search = ['fail']
 
-if ARGV
-  SEARCH = ARGV
+if ARGV.empty?
+  SEARCH = search
 else
-  # Default search term
-  SEARCH = DEFAULT_SEARCH
+  SEARCH = ARGV
 end
 
 require 'rubygems'
@@ -39,6 +38,7 @@ end
 
 ts = TweetStream::Client.new
 puts 'initialization finished'
+puts "search: #{SEARCH.join(', ')}"
 
 ts.track(SEARCH) do |status|
   string = "[#{status.user.screen_name}] #{status.text}"

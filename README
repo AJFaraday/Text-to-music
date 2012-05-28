@@ -26,7 +26,7 @@ For twitter stream sonification:
   To stop script press ctrl+c (you may have to hold this for a while to get through the queue of tweets)
   Optionally:
     Modify the first few lines of twitter.rb to remove the need to type a username or to change the default search
-    use arguments to change the searched for terms (e.g. ruby twitter.rb win )
+    use arguments to change the searched for terms (e.g. ruby twitter.rb win or ruby twitter.rb lemmy bieber)
 
 Likely errors:
   `initialize': Connection refused - connect(2) (Errno::ECONNREFUSED) - means that ruby_interact.pd is not open (it opens a TCP port to listen to the Character class)
