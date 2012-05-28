@@ -30,7 +30,7 @@ For twitter stream sonification:
   ruby twitter.rb
   Input a twitter username and password when requested
   Watch the tweets contining 'fail' rolling in and being sonified
-  To stop script press ctrl+c (you may have to hold this for a while to get through the queue of tweets)
+  To stop script press ctrl+c and wait until the end of the current tweet
   Optionally:
     Modify the first few lines of twitter.rb to remove the need to type a username or to change the default search
     use arguments to change the searched for terms (e.g. ruby twitter.rb win or ruby twitter.rb lemmy bieber)
