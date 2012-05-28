@@ -3,20 +3,27 @@ by Andrew Faraday
 contributors:
 - Andrew Faraday
 
+  A derivation of my very first ruby project, reading a string and converting it to control signals for puredata. The pure data patch recieves these via a TCP port and sends them to some short audio chains and the result is heard in sound.
+  This has also been plugged-in to the twitter streaming API, to sonify tweets as they come in. A sort of literal twitter. 
+  Watch out for rhyming and/or recurring words, you can actually hear that 'how now brown cow' rhymes.
+
 Requires:
   git 
   ruby
   rubygems 
   openssl-lib
   Pure Data Extended (from www.puredata.info)
-Gems:
-  tweetstream (sudo gem install tweetstream)
+Gems: (sudo gem install *name*)
+  tweetstream 
+  highline
 
 For manual import:
   Open ruby_interact.pd in puredata
   Open manual_input.rb in ruby (e.g. ruby manual_input.rb)
-  Follow on-screen prompts
- 
+  Input a speed from 1 to 10
+  Type some text and listen to the result.
+  Repeat as required
+  press ctrl+c to end the script
 
 For twitter stream sonification:
   Open ruby_interact.pd in puredata
