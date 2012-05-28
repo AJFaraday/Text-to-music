@@ -1,11 +1,13 @@
 # default twitter username, uncomment and set name to skip typing username
 # TWITTER_USERNAME = 'yourusername'
+# default seach term if not set in the command line
+DEFAULT_SEARCH = ['fail']
 
 if ARGV
   SEARCH = ARGV
 else
   # Default search term
-  SEARCH = ['fail']
+  SEARCH = DEFAULT_SEARCH
 end
 
 require 'rubygems'

@@ -3,21 +3,33 @@ by Andrew Faraday
 contributors:
 - Andrew Faraday
 
-
-Requires: 
- ruby
- rubygems 
- openssl-lib
- Pure Data Extended (from www.puredata.info)
+Requires:
+  git 
+  ruby
+  rubygems 
+  openssl-lib
+  Pure Data Extended (from www.puredata.info)
 Gems:
- tweetstream (sudo gem install tweetstream)
+  tweetstream (sudo gem install tweetstream)
 
 For manual import:
- Open ruby_interact.pd in puredata
- Open manual_input.rb in ruby
- Follow on-screen prompts
+  Open ruby_interact.pd in puredata
+  Open manual_input.rb in ruby (e.g. ruby manual_input.rb)
+  Follow on-screen prompts
+ 
 
+For twitter stream sonification:
+  Open ruby_interact.pd in puredata
+  ruby twitter.rb
+  Input a twitter username and password when requested
+  Watch the tweets contining 'fail' rolling in and being sonified
+  To stop script press ctrl+c (you may have to hold this for a while to get through the queue of tweets)
+  Optionally:
+    Modify the first few lines of twitter.rb to remove the need to type a username or to change the default search
+    use arguments to change the searched for terms (e.g. ruby twitter.rb win )
 
+Likely errors:
+  `initialize': Connection refused - connect(2) (Errno::ECONNREFUSED) - means that ruby_interact.pd is not open (it opens a TCP port to listen to the Character class)
 
 Future intent:
  Connect to Pidgin or IRC, musical chat client. 
