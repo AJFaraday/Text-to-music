@@ -16,9 +16,9 @@ require 'tweetstream'
 require 'pd-connect'
 
 # shared connection to PureData 
-sock = PureData.connection
+pd = PureData.new
 
-if sock
+if pd
   
   unless defined?(TWITTER_USERNAME)
     TWITTER_USERNAME = ask("Twitter Username:").chomp
@@ -38,22 +38,12 @@ if sock
   # The actual code for the stream
   ts = TweetStream::Client.new
   puts 'initialization finished'
-  puts "search: #{SEARCH.join(', ')}"
-  
-  
-  #interrupted = false
-  #trap("INT") do 
-  #  interrupted = true
-  #end
+  puts "search: #{SEARCH.join(', ')}" 
   
   ts.track(SEARCH) do |status|
-  #  if interrupted == true
-  #    ts.stop
-  #    return
-  #  end
     string = "[#{status.user.screen_name}] #{status.text}"
     puts ''
-    Character.send_string(string, sock, 0.15)
+    pd.send_string(string, 0.15)
     puts ''
   end
   

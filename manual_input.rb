@@ -1,9 +1,9 @@
-require 'pd-connect'
+require 'lib/pd-connect'
 
 # this should set up a port into pd
-sock = PureData.connection
+pd = PureData.new
 
-if sock
+if pd
   # Sets the playback speed
   puts "what speed? (1 to 10)"
   onetoten = gets.to_f
@@ -15,7 +15,7 @@ if sock
   
   loop do
     puts 'Phrase:'
-    Character.send_string(gets.gsub('\n',''), sock, speed)
+    pd.send_string(gets.gsub('\n',''), speed)
   end
 
 else

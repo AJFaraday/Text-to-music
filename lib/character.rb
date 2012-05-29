@@ -42,13 +42,5 @@ class Character
     return "#{pre} #{comm} ;"
   end
 
-  def Character.send_string(string,sock,speed)
-    string.chars.each do |c|
-      print c
-      sock.puts Character.new(c).command
-      $stdout.flush
-      sleep speed
-    end 
-  end
 
 end
