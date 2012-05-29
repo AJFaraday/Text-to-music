@@ -518,7 +518,7 @@
 #X connect 13 0 6 0;
 #X connect 14 0 2 0;
 #X restore 496 84 pd numbsynth;
-#N canvas 104 35 860 501 punctuation2 1;
+#N canvas 104 35 860 501 punctuation2 0;
 #X obj 24 140 osc~;
 #X obj 24 118 line~;
 #X obj 69 140 osc~;
@@ -705,7 +705,7 @@
 #X obj 34 107 s let;
 #X obj 78 108 s num;
 #X obj 72 46 print;
-#N canvas 0 0 450 300 punctuation-route 1;
+#N canvas 0 0 450 300 punctuation-route 0;
 #X obj 57 27 inlet;
 #X obj 57 78 s stop;
 #X obj 74 101 s comma;

@@ -13,8 +13,8 @@ class PureData
     begin
       config = YAML.load_file("config.yml")['connection']
     rescue
-      raise "config.yml not found, please copy it from the template and modify as required. (`cp config.yml.template config.yml`)"
-      return
+      puts "config.yml not found, please copy it from the template and modify as required. (`cp config.yml.template config.yml`)"
+      abort
     end
     hostname = config['hostname']
     port = config['port']
@@ -23,6 +23,7 @@ class PureData
       puts "Connection established on #{hostname}:#{port}"
     rescue Errno::ECONNREFUSED
       puts "Connection refused! Please ensure ruby_interact.pd is running in puredata and listening on #{hostname}:#{port}"
+      abort
     end
   end
 
