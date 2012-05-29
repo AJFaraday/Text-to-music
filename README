@@ -48,9 +48,10 @@ Twitter stream sonification
     * Change the default search term in config.yml
     * use arguments to change the searched for terms (e.g. `ruby twitter.rb win` or `ruby twitter.rb right wrong`)
 
-Future intent
--------------
+Future intentions
+-----------------
 * Connect to Pidgin or IRC, musical chat client. 
+* Find a library for midi output, to feed a hardware synthesizer.
 
 Contributors
 ------------
