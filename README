@@ -19,6 +19,14 @@ Requirements
     * tweetstream
     * highline
 
+Installation
+------------
+
+* Make sure you have the above programs and gems.
+* Clone the git repository. (`git clone https://github.com/AJFaraday/Text-to-music.git`)
+* Make a copy of the file config.yml.template called config.yml (`cp config.yml.template config.yml`)
+* (Optional) Modify config.yml as required
+
 Manual Mode
 -----------
 * Open ruby_interact.pd in puredata
@@ -36,8 +44,9 @@ Twitter stream sonification
 * Watch the tweets contining 'fail' rolling in and being sonified
 * To stop script press `ctrl+c` (you may have to hold it from there)
 * Optionally:
-    * Modify the first few lines of twitter.rb to remove the need to type a username or to change the default search
-    * use arguments to change the searched for terms (e.g. ruby twitter.rb win or ruby twitter.rb lemmy bieber)
+    * Add your twitter username and password to config.yml to skip manual input
+    * Change the default search term in config.yml
+    * use arguments to change the searched for terms (e.g. `ruby twitter.rb win` or `ruby twitter.rb right wrong`)
 
 Future intent
 -------------
