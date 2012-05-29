@@ -10,9 +10,14 @@ class PureData
 
   # this should set up a port into pd
   def initialize
-    config = YAML.load_file("config.yml")
-    hostname = config['connection']['hostname']
-    port = config['connection']['port']
+    begin
+      config = YAML.load_file("config.yml")['connection']
+    rescue
+      raise "config.yml not found, please copy it from the template and modify as required. (`cp config.yml.template config.yml`)"
+      return
+    end
+    hostname = config['hostname']
+    port = config['port']
     begin
       self.connection = TCPSocket.open hostname, port
       puts "Connection established on #{hostname}:#{port}"
