@@ -13,7 +13,7 @@ require 'rubygems'
 require 'highline/import'
 # Twitter streaming api gem
 require 'tweetstream' 
-require 'pd-connect'
+require 'lib/pd-connect'
 
 # shared connection to PureData 
 pd = PureData.new
