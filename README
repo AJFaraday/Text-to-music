@@ -14,7 +14,7 @@ Requirements
 * ruby
 * rubygems 
 * openssl-lib
-* Pure Data Extended (from www.puredata.info)
+* Pure Data Extended (from www.puredata.info/downloads/pd-extended)
 * Gems: (`bundle install`)
     * tweetstream
     * highline
