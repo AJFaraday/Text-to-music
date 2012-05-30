@@ -36,4 +36,14 @@ class PureData
     end
   end
 
+  # accepts the 'place' and 'geo' hashes from a tweet and dumps parts of it to puredata
+  # command will be along the lines of "location GB Guildford 51.24008618 -0.57108614"
+  def send_location(place, geo)
+    if place and geo
+      connection.puts("location #{place[:country_code]} #{place[:name]} #{geo[:coordinates][0]} #{geo[:coordinates][1]};")
+    else
+      connection.puts("location reset;")
+    end
+  end
+
 end

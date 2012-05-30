@@ -42,10 +42,18 @@ if pd
   puts "search: #{SEARCH.join(', ')}" 
   
   ts.track(SEARCH) do |status|
-    string = "[#{status.user.screen_name}] #{status.text}"
-    puts ''
-    pd.send_string(string, 0.15)
-    puts ''
+    begin
+      puts ''
+      puts "[#{status.user.screen_name}] - #{status.source}"
+      puts "location: #{status.place.country} - #{status.place.name}" if status.place
+      pd.send_location(status.place, status.geo)
+      string = "[#{status.user.screen_name}] #{status.text}"
+      pd.send_string(string, 0.15)
+      puts ''
+    rescue => er
+      puts er.message
+      puts er.backtrace
+    end
   end
   
 else
