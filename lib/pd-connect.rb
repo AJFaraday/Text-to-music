@@ -30,7 +30,7 @@ class PureData
   def send_string(string,speed)
     string.chars.each do |c|
       print c
-      connection.puts Character.new(c).command
+      connection.puts Character.command(c)
       $stdout.flush
       sleep speed
     end
