@@ -52,6 +52,10 @@ Future intentions
 -----------------
 * Connect to Pidgin or IRC, musical chat client. 
 * Find a library for midi output, to feed a hardware synthesizer.
+* Use location information from tweets (longitude and latitude) to make repeatable timbral changes to tweets.
+* Use other live-streaming text APIs to feed the algorithm:
+  * National Rail real-time api ('https://datafeeds.networkrail.co.uk/ntrod/')
+  
 
 Contributors
 ------------
