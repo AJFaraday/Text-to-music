@@ -8,7 +8,10 @@ class PureData
   attr_accessor :hostname
   attr_accessor :port
 
-  # this should set up a port into pd
+  # 
+  # Initializing an instance of PureData will set up a connection(TCPSocket) to the pure data patch. 
+  # This should handle the lack of a config file, the patch being closed and an invalid hostname and/or port
+  #
   def initialize
     begin
       config = YAML.load_file("config.yml")['connection']
@@ -24,9 +27,17 @@ class PureData
     rescue Errno::ECONNREFUSED
       puts "Connection refused! Please ensure ruby_interact.pd is running in puredata and listening on #{hostname}:#{port}"
       abort
+    rescue SocketError
+      puts "Hostname and port are invalid. Please make sure they're a valid ip address and port number."
+      abort
     end
   end
 
+  #
+  # Accepts a string and separates it into it's individual characters and a speed (actually a rest time in seconds)
+  # Outputs characters to the console one by one (typewriter effect)
+  # Outputs suitable commands to the pure data patch
+  # 
   def send_string(string,speed)
     string.chars.each do |c|
       print c
@@ -36,8 +47,11 @@ class PureData
     end
   end
 
-  # accepts the 'place' and 'geo' hashes from a tweet and dumps parts of it to puredata
+  #
+  # accepts the 'place' and 'geo' hashes from a tweet (TweetStream::Hash) and dumps parts of it to puredata
   # command will be along the lines of "location GB Guildford 51.24008618 -0.57108614"
+  # This is intended to be used as timbre control, providing a noticable tone difference based on location. 
+  # 
   def send_location(place, geo)
     if place and !place.nil?
       if geo and !geo.nil?

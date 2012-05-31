@@ -1,6 +1,19 @@
+#
+# Andrew James Faraday - May 2012
+# 
+# A simple config file to avoid repeat data imput and change details as required.
+# When you first install the script you will need to make a copy of this file called 'config.yml'
+#
+
+# These attributes will affect the TCP connection from ruby to pure data.
+# 127.0.0.1 is the computer that's running the script and 3939 is the default port.
 connection:
   hostname: '127.0.0.1'
   port: 3939
+
+# These attributes are for the connection to twitter
+# Username and password will be prompted for if they are not pre-defined
+# The default search will be used if one is not input on the command line.
 twitter:
   username: 
   password:

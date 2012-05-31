@@ -1,4 +1,4 @@
-#N canvas 62 129 897 355 10;
+#N canvas 62 129 621 231 10;
 #X obj 35 21 netreceive 3939;
 #N canvas 474 70 450 300 synth 0;
 #X obj 26 64 osc~;
@@ -766,6 +766,10 @@
 #X connect 1 2 4 0;
 #X connect 1 3 5 0;
 #X restore 171 125 pd location;
+#X text 243 1 Text to music synthesis patch;
+#X text 238 18 Andrew James Faraday - May 2012;
+#X text 231 182 Note: this patch must be open for the ruby text to
+music scripts to work.;
 #X connect 0 0 11 0;
 #X connect 0 0 13 0;
 #X connect 7 0 8 0;
