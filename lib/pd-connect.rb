@@ -1,3 +1,9 @@
+#
+# Andrew James Faraday - May 2012
+#
+# The PureData class handles the connection to the bundled pure data patch. One instance of PureData can be used multiple times.
+#
+
 require 'socket'
 require 'lib/character'
 require 'yaml'
