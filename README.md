@@ -30,7 +30,7 @@ Installation
 Manual Mode
 -----------
 * Open ruby_interact.pd in puredata
-* Open manual_input.rb in ruby (e.g. `ruby manual_input.rb`)
+* Open manual_input.rb in ruby (e.g. `ruby scripts/manual_input.rb`)
 * Input a speed from 1 to 10
 * Type some text and listen to the result.
 * Repeat as required
@@ -39,14 +39,14 @@ Manual Mode
 Twitter stream sonification
 ---------------------------
 * Open ruby_interact.pd in puredata
-* `ruby twitter.rb`
+* `ruby scripts/twitter.rb`
 * Input a twitter username and password when requested
 * Watch the tweets contining 'fail' rolling in and being sonified
 * To stop script press `ctrl+c` (you may have to hold it from there)
 * Optionally:
     * Add your twitter username and password to config.yml to skip manual input
     * Change the default search term in config.yml
-    * use arguments to change the searched for terms (e.g. `ruby twitter.rb win` or `ruby twitter.rb right wrong`)
+    * use arguments to change the searched for terms (e.g. `ruby scripts/twitter.rb win` or `ruby scripts/twitter.rb right wrong`)
 
 Future intentions
 -----------------
@@ -55,7 +55,6 @@ Future intentions
 * Use location information from tweets (longitude and latitude) to make repeatable timbral changes to tweets.
 * Use other live-streaming text APIs to feed the algorithm:
   * National Rail real-time api ('https://datafeeds.networkrail.co.uk/ntrod/')
-  
 
 Contributors
 ------------
