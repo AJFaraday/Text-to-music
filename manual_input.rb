@@ -24,5 +24,6 @@ speed = (1 / onetoten)
 # Repeatedly prompt the user to provide some text to sonify.
 loop do
   puts 'Phrase:'
-  pd.send_string(gets.gsub('\n',''), speed)
+  pd.send_string(gets.chomp, speed)
+  puts ''
 end

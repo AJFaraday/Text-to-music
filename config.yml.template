@@ -19,3 +19,8 @@ twitter:
   password:
   default_search: 'fail' 
 
+#
+# The default feed url for the rss aggregator
+#
+rss:
+  default_feed: 'http://feeds.bbci.co.uk/news/rss.xml'
