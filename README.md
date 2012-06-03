@@ -15,7 +15,7 @@ Requirements
 * rubygems 
 * openssl-lib
 * Pure Data Extended (from www.puredata.info/downloads/pd-extended)
-* Gems: (`bundle install`)
+* Gems: (`bunde install` or `sudo gem install tweetstream highline`)
     * tweetstream
     * highline
 
@@ -47,6 +47,18 @@ Twitter stream sonification
     * Add your twitter username and password to config.yml to skip manual input
     * Change the default search term in config.yml
     * use arguments to change the searched for terms (e.g. `ruby scripts/twitter.rb win` or `ruby scripts/twitter.rb right wrong`)
+
+RSS feed sonification
+---------------------
+
+By default, the rss feed will sonify the first 5 items of a feed, then begin again when an item is added.
+Initially developed and tested with the bbc news headlines feed, other rss feeds may be structured differently
+
+* Open ruby_interact.rb in puredata
+* `ruby scripts/rss-feed.rb`
+* Optionally:
+  * Set a different rss feed by changing the default feed in config.yml
+  * Set a different feed as an argument (e.g. `ruby scripts/rss-feed.rb http://feeds.bbci.co.uk/news/rss.xml`)
 
 Future intentions
 -----------------
