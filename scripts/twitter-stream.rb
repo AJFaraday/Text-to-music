@@ -20,9 +20,9 @@ password = config['password'] if config['password'] and !config['password'].nil?
 search = config['default_search'].split(' ')
 # default search is set if arguments are empty
 if ARGV.empty?
-  SEARCH = search
+  search = search
 else
-  SEARCH = ARGV
+  search = ARGV.join ' '
 end
 
 # ask twitter username if not present in config
@@ -46,10 +46,14 @@ ts = TweetStream::Client.new
 # Last bits of information
 #TODO catch incorrect username/password at this stage
 puts 'initialization finished'
-puts "search: #{SEARCH.join(', ')}" 
+puts "search: #{search}" 
+
+ts.on_error do |error|
+  puts "ERROR: #{error}"
+end
 
 # Code to be run on finding a tweet matching search term.
-ts.track(SEARCH) do |status|
+ts.track(search) do |status|
   begin
     # Output user and source  to the console 
     puts ''
