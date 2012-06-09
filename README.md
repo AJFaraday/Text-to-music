@@ -72,3 +72,7 @@ Contributors
 ------------
 * Andrew Faraday
 * Robin Gower
+
+Testers
+* Richard Knight
+* Peter Shillito
