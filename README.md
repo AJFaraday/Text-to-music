@@ -29,8 +29,8 @@ Installation
 
 Manual Mode
 -----------
-* Open ruby_interact.pd in puredata
-* Open manual_input.rb in ruby (e.g. `ruby scripts/manual_input.rb`)
+* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
+* Open manual_input.rb in ruby (`ruby scripts/manual-input.rb`)
 * Input a speed from 1 to 10
 * Type some text and listen to the result.
 * Repeat as required
@@ -38,7 +38,7 @@ Manual Mode
 
 Twitter stream sonification
 ---------------------------
-* Open ruby_interact.pd in puredata
+* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
 * `ruby scripts/twitter.rb`
 * Input a twitter username and password when requested
 * Watch the tweets contining 'fail' rolling in and being sonified
@@ -46,7 +46,7 @@ Twitter stream sonification
 * Optionally:
     * Add your twitter username and password to config.yml to skip manual input
     * Change the default search term in config.yml
-    * use arguments to change the searched for terms (e.g. `ruby scripts/twitter.rb win` or `ruby scripts/twitter.rb right wrong`)
+    * use arguments to change the searched for terms (e.g. `ruby scripts/twitter-stream.rb win` or `ruby scripts/twitter-stream.rb right wrong`)
 
 RSS feed sonification
 ---------------------
@@ -54,7 +54,7 @@ RSS feed sonification
 By default, the rss feed will sonify the first 5 items of a feed, then begin again when an item is added.
 Initially developed and tested with the bbc news headlines feed, other rss feeds may be structured differently
 
-* Open ruby_interact.rb in puredata
+* Open ruby_interact.rb in puredata (make sure 'compute audio' is checked)
 * `ruby scripts/rss-feed.rb`
 * Optionally:
   * Set a different rss feed by changing the default feed in config.yml
