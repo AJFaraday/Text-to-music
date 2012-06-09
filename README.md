@@ -15,7 +15,7 @@ Requirements
 * rubygems 
 * openssl-lib
 * Pure Data Extended (from www.puredata.info/downloads/pd-extended)
-* Gems: (`bunde install` or `sudo gem install tweetstream highline`)
+* Gems: (`bundle install` or `sudo gem install tweetstream highline`)
     * tweetstream
     * highline
 
