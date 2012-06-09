@@ -15,8 +15,11 @@ pd = PureData.new
  
 # Load attributes from the config file
 config = YAML.load_file("config.yml")['twitter']
-TWITTER_USERNAME = config['username'] if config['username'] and !config['username'].empty?
-password = config['password'] if config['password'] and !config['password'].nil?
+consumer_key       = config['consumer_key'] if config['consumer_key'] and !config['consumer_key'].empty?
+consumer_secret    = config['consumer_secret'] if config['consumer_secret'] and !config['consumer_secret'].empty?
+oauth_token        = config['oauth_token'] if config['oauth_token'] and !config['oauth_token'].empty?
+oauth_token_secret = config['oauth_token_secret'] if config['oauth_token_secret'] and !config['oauth_token_secret'].empty?
+
 search = config['default_search'].split(' ')
 # default search is set if arguments are empty
 if ARGV.empty?
@@ -25,22 +28,21 @@ else
   search = ARGV.join ' '
 end
 
-# ask twitter username if not present in config
-unless defined?(TWITTER_USERNAME)
-  TWITTER_USERNAME = ask("Twitter Username:").chomp
+# Fetch twitter credentials if they're not present in the config file
+unless oauth_token and oauth_token_secret
+  oauth_token, oauth_token_secret = get_twitter_auth(consumer_key, consumer_secret)
 end
-# ask twitter password if not present in config
-puts "Using twitter username '#{TWITTER_USERNAME}'."
-if password.nil?
-  password = ask("Enter password: ") { |q| q.echo = false }
-  password = password.chomp
-end
+
 # Configure TweetStream
 TweetStream.configure do |config|
-  config.username = TWITTER_USERNAME
-  config.password = password
-  config.auth_method = :basic
+  config.consumer_key       = consumer_key
+  config.consumer_secret    = consumer_secret
+  config.oauth_token        = oauth_token
+  config.oauth_token_secret = oauth_token_secret
+  config.auth_method        = :oauth
 end
+
+
 # Set up new TweetStream client
 ts = TweetStream::Client.new
 # Last bits of information
