@@ -128,7 +128,7 @@
 #X connect 49 0 47 0;
 #X connect 50 0 33 0;
 #X restore 482 2 pd punctuation;
-#N canvas 264 25 750 513 brackets 1;
+#N canvas 264 25 750 513 brackets 0;
 #X obj 148 39 r opb;
 #X obj 156 71 r clb;
 #X obj 65 143 vline~;
@@ -477,7 +477,7 @@
 #X connect 22 20 21 0;
 #X restore 125 154 pd punctuation-route;
 #X obj 34 65 route letter num punct location;
-#N canvas 0 0 450 300 location 1;
+#N canvas 0 0 450 300 location 0;
 #X obj 59 66 inlet;
 #X obj 59 109 unpack s s f f;
 #X symbolatom 59 140 10 0 0 0 - - -;

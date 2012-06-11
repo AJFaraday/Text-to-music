@@ -7,23 +7,51 @@
 # press ctrl+c to exit the script
 #
 
+#
+# Update, 11 Jun 2012
+#
+# The script, with a surprisingly simple set of changes, can now be fed a file, which it reads. This opens the rather mind-blowing possibility of running this line:
+#
+# ruby scripts/manual-input.rb scripts/manual-input.rb
+#
+# The above command will use this file to read and sonify this file including this comment about reading and sonifying this file.
+#
+
 require 'lib/pd-connect'
+
+# If the first argument is a valid file, place a flag to skip prompts
+begin
+  file = File.new(ARGV[0])
+  puts "Reading file: #{file.path}"
+rescue
+  # a convenience rescue to keep the process silent when a file is not present.
+end
 
 # Set up a port into pd
 pd = PureData.new
 
-# Set the playback speed
-puts "what speed? (1 to 10)"
-onetoten = gets.to_f
-unless onetoten >= 1 && onetoten <= 10 
-  onetoten = 10.0
-  puts "defaulted to 10!"
+if file and file.is_a? File
+  # Automatically set the playback speed
+  speed = 0.15
+  show_prompt = false
+else
+  # Manually set the playback speed
+  puts "what speed? (1 to 10)"
+  onetoten = gets.to_f 
+  unless onetoten && onetoten >= 1 && onetoten <= 10 
+    onetoten = 10.0 
+    puts "defaulted to 10!"
+  end
+  speed = (1 / onetoten)
+  show_prompt = true
 end
-speed = (1 / onetoten)
- 
+
 # Repeatedly prompt the user to provide some text to sonify.
-loop do
-  puts 'Phrase:'
-  pd.send_string(gets.chomp, speed)
-  puts ''
+phrase = ''
+until phrase.nil? do
+  puts 'Phrase:' if show_prompt
+  phrase = nil
+  phrase = gets
+  pd.send_string(phrase.chomp, speed) if phrase
+  puts '' 
 end
