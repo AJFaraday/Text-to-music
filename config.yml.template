@@ -18,8 +18,6 @@ connection:
   # when you run the twitter userstream script you will be prompted to authorize your user for the text-to-music app, then the oauth_token and oauth_token_secret will be provided
 # The default search will be used if one is not input on the command line.
 twitter:
-  username: 
-  password:
   consumer_key: I9bnoRdRPzhAdxdlAy7Qw
   consumer_secret: t1a6rX1bza1lZuN1ARIrwraRvzpDFIhhL94mdNhtFY
   oauth_token:
