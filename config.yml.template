@@ -29,3 +29,14 @@ twitter:
 #
 rss:
   default_feed: 'http://feeds.bbci.co.uk/news/rss.xml'
+
+#
+# Music settings which change it slightly. 
+#
+# transpose denotes the semitones up or down the letter and number notes will be moved by.
+# speed is the time from one note to the next being triggered
+# this is only overridden on manual import
+music:
+  transpose: 10
+  speed: 0.15
+

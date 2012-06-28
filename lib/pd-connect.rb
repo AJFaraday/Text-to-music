@@ -13,6 +13,7 @@ class PureData
   attr_accessor :connection
   attr_accessor :hostname
   attr_accessor :port
+  attr_accessor :music
 
   # 
   # Initializing an instance of PureData will set up a connection(TCPSocket) to the pure data patch. 
@@ -20,13 +21,16 @@ class PureData
   #
   def initialize
     begin
-      config = YAML.load_file("config.yml")['connection']
+      config = YAML.load_file("config.yml")
+      connection = config['connection']
+      self.music = config['music']
     rescue
       puts "config.yml not found, please copy it from the template and modify as required. (`cp config.yml.template config.yml`)"
       abort
     end
-    hostname = config['hostname']
-    port = config['port']
+    hostname = connection['hostname']
+    port = connection['port']
+    transpose = music['transpose']
     begin
       self.connection = TCPSocket.open hostname, port
       puts "Connection established on #{hostname}:#{port}"
@@ -44,10 +48,11 @@ class PureData
   # Outputs characters to the console one by one (typewriter effect)
   # Outputs suitable commands to the pure data patch
   # 
-  def send_string(string,speed)
+  def send_string(string,speed=nil)
+    speed ||= music['speed']
     string.chars.each do |c|
       print c
-      connection.puts Character.command(c)
+      connection.puts Character.command(c, music['transpose'])
       $stdout.flush
       sleep speed
     end

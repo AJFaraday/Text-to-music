@@ -45,22 +45,23 @@ module Character
   # Converts a character (or rather, the first character of a string) and converts it into commands for the pure data patch.
   # See above for examples
   #
-  def self.command(character)
+  def self.command(character, transpose)
+    transpose ||= TRANSPOSE
     pre = 'letter'
     number = get_number(character)
     case number
       # Upper case
       when 65..90 
-        comm = number + TRANSPOSE
+        comm = number + transpose
       # Lower case
       when 97..122
-        comm = (number-47) + TRANSPOSE
+        comm = (number-47) + transpose
       # space
       when 32
         comm = 0
       when 48..57
         pre = 'num'
-        comm = NUMBERS[character.to_i]
+        comm = NUMBERS[character.to_i] + transpose
     end
     # punctuation
     if PUNCTUATION_NUMBERS.include? number

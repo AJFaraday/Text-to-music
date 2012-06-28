@@ -30,7 +30,7 @@ loop do
     unless used_titles.include? item.title
       used_titles << item.title
       string = "#{item.title}! - #{item.description}"
-      pd.send_string(string, 0.1)
+      pd.send_string(string)
       2.times{puts ''}
       sleep 1
     end

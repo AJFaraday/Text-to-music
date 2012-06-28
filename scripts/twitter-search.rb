@@ -65,7 +65,7 @@ ts.track(search) do |status|
     pd.send_location(status.place, status.geo)
     # Set and sonify tweet text, format => "[mr_bloke] this is a tweet #fail #win #woot!"
     string = "[#{status.user.screen_name}] #{status.text}"
-    pd.send_string(string, 0.15)
+    pd.send_string(string)
     puts ''
   rescue => er
     # display any errors that occur while keeping the stream open.
