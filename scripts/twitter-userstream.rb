@@ -19,13 +19,6 @@ oauth_token_secret = config['oauth_token_secret'] if config['oauth_token_secret'
 # Set up a port to PureData 
 pd = PureData.new
  
-# default search is set if arguments are empty
-if ARGV.empty?
-  search = search
-else
-  search = ARGV.join ' '
-end
-
 unless oauth_token and oauth_token_secret
   oauth_token, oauth_token_secret = get_twitter_auth(consumer_key, consumer_secret)
 end
@@ -42,7 +35,6 @@ end
 # Set up new TweetStream client
 ts = TweetStream::Client.new
 # Last bits of information
-#TODO catch incorrect username/password at this stage
 puts 'initialization finished'
 
 # Code to be run on finding a tweet matching search term.
