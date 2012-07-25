@@ -87,7 +87,8 @@ Testers
 * Richard Knight
 * Peter Shillito
 
-Notes (suggestions welcome)
----------------------------
+Notes
+-----
 
 * The word 'potato' sounds surprisingly pleasant due to the reversed patter, 'ot' and 'to'
+* I have added a vanilla mod to the pure data patch, requiring no pd-extended libraries. This can be run entirely in the commandline with `puredata -nogui ruby_interact_vanilla.pd`
