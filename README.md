@@ -30,7 +30,7 @@ Installation
 
 Manual Mode
 -----------
-* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
 * Open manual_input.rb in ruby (`ruby scripts/manual-input.rb`)
 * Input a speed from 1 to 10
 * Type some text and listen to the result.
@@ -39,7 +39,7 @@ Manual Mode
 
 Twitter stream sonification
 ---------------------------
-* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
 * `ruby scripts/twitter.rb`
 * You will be prompted to authorise text-to-music to know who is following you.
 * (After authorising text-to-music, you will be given two lines to add to config.yml, if you do this you will not need to authorise it again.)
@@ -55,7 +55,7 @@ RSS feed sonification
 By default, the rss feed will sonify the first 5 items of a feed, then begin again when an item is added.
 Initially developed and tested with the bbc news headlines feed, other rss feeds may be structured differently
 
-* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
 * `ruby scripts/rss-feed.rb`
 * Optionally:
   * Set a different rss feed by changing the default feed in config.yml
@@ -64,7 +64,7 @@ Initially developed and tested with the bbc news headlines feed, other rss feeds
 Reading a file
 --------------
 
-* Open ruby_interact.pd in pure data (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in pure data (make sure 'DSP' is checked)
 * `ruby scripts/manual-input.rb` followed by a file name (e.g. `ruby scripts/manual-input.rb README.md` will read this file)
 
 Future intentions
