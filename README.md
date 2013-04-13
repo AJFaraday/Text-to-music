@@ -55,7 +55,7 @@ RSS feed sonification
 By default, the rss feed will sonify the first 5 items of a feed, then begin again when an item is added.
 Initially developed and tested with the bbc news headlines feed, other rss feeds may be structured differently
 
-* Open ruby_interact.rb in puredata (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
 * `ruby scripts/rss-feed.rb`
 * Optionally:
   * Set a different rss feed by changing the default feed in config.yml
@@ -64,7 +64,7 @@ Initially developed and tested with the bbc news headlines feed, other rss feeds
 Reading a file
 --------------
 
-* Open ruby_interact.rb in pure data (make sure 'compute audio' is checked)
+* Open ruby_interact.pd in pure data (make sure 'compute audio' is checked)
 * `ruby scripts/manual-input.rb` followed by a file name (e.g. `ruby scripts/manual-input.rb README.md` will read this file)
 
 Future intentions
