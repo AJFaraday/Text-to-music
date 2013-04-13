@@ -40,14 +40,14 @@ Manual Mode
 Twitter stream sonification
 ---------------------------
 * Open ruby_interact.pd in puredata (make sure 'compute audio' is checked)
-* `ruby scripts/twitter.rb`
+* `ruby scripts/twitter-search.rb`
 * You will be prompted to authorise text-to-music to know who is following you.
 * (After authorising text-to-music, you will be given two lines to add to config.yml, if you do this you will not need to authorise it again.)
 * Watch the tweets contining 'fail' rolling in and being sonified
 * To stop script press `ctrl+c` (you may have to hold it from there)
 * Optionally:
     * Change the default search term in config.yml
-    * use arguments to change the searched for terms (e.g. `ruby scripts/twitter-stream.rb win` or `ruby scripts/twitter-stream.rb right wrong`)
+    * use arguments to change the searched for terms (e.g. `ruby scripts/twitter-search.rb win` or `ruby scripts/twitter-search.rb right wrong`)
 
 RSS feed sonification
 ---------------------
