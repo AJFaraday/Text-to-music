@@ -40,7 +40,7 @@ Manual Mode
 Twitter stream sonification
 ---------------------------
 * Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
-* `ruby scripts/twitter.rb`
+* `ruby -I. scripts/twitter-stream.rb`
 * You will be prompted to authorise text-to-music to know who is following you.
 * (After authorising text-to-music, you will be given two lines to add to config.yml, if you do this you will not need to authorise it again.)
 * Watch the tweets contining 'fail' rolling in and being sonified
