@@ -17,7 +17,7 @@
 # The above command will use this file to read and sonify this file including this comment about reading and sonifying this file.
 #
 
-require 'lib/pd-connect'
+require './lib/pd-connect'
 
 # If the first argument is a valid file, place a flag to skip prompts
 begin
