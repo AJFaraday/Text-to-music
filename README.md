@@ -65,7 +65,7 @@ Reading a file
 --------------
 
 * Open ruby_interact.pd in pure data (make sure 'DSP' is checked)
-* `ruby scripts/manual-input.rb` followed by a file name (e.g. `ruby -I. scripts/manual-input.rb README.md` will read this file)
+* `ruby scripts/manual-input.rb` followed by a file name (e.g. `ruby scripts/manual-input.rb README.md` will read this file)
 
 Future intentions
 -----------------
