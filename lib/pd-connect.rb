@@ -5,7 +5,7 @@
 #
 
 require 'socket'
-require 'lib/character'
+require './lib/character'
 require 'yaml'
 
 class PureData
