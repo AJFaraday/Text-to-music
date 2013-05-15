@@ -83,7 +83,7 @@ Contributors
 * Robin Gower
 * Peter Vandenberk (https://www.github.com/pvdb)
 * Abe Stanway(http://www.github.com/astanway)
-* Pad Nakajima(https://www.github.com/nakajima)
+* Pat Nakajima(https://www.github.com/nakajima)
 
 Testers
 -------
