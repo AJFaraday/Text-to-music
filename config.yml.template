@@ -29,8 +29,9 @@ twitter:
 #
 rss:
   default_feed: 'http://feeds.bbci.co.uk/news/rss.xml'
-  github_repo: 'ajfaraday/Text-To-Music'
-
+  github:
+    repo: 'AJFaraday/Text-to-music'
+    branch: 'master'
 #
 # Music settings which change it slightly. 
 #
