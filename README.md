@@ -95,7 +95,7 @@ if more than 20 commits are pushed at the same time, some will be lost.
 If this ran for a long time, there would be a huge array of used commit ids in memory, which
 could slow your computer down. Perhaps some garbage collection here when unused_ids gets past a given point.
 
-This is currently making a request for the whole RSS feed every 10 seconds. This seems like a
+This is currently making a request for the whole RSS feed every minute. This seems like a
 lot of traffic. Is there a way to poll for just the feed version or most recent post time?
 
 Reading a file

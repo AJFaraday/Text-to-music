@@ -14,12 +14,15 @@ pd = PureData.new
 # Get rss feed url
 # default feed is set if arguments are empty, otherwise, the first argument is used
 if ARGV.empty?
-  repo = YAML.load_file("config.yml")['rss']['github_repo']
+  repo = YAML.load_file("config.yml")['rss']['github']['repo']
+  branch = YAML.load_file("config.yml")['rss']['github']['branch']
 else
   repo = ARGV[0]
+  branch = ARGV[1]
+  branch ||= YAML.load_file("config.yml")['rss']['github']['branch']
 end
-puts "Sonifying repo: #{repo}"
-url = "https://www.github.com/#{repo}/commits/master.atom"
+puts "Sonifying repo: #{repo} branch: #{branch}"
+url = "https://www.github.com/#{repo}/commits/#{branch}.atom"
 
 # an array of used ids, to avoid repeats
 used_ids = []
@@ -45,6 +48,6 @@ loop do
       sleep 1
     end
   end
-  sleep 10
+  sleep 60
 end
 
