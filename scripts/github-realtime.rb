@@ -33,7 +33,7 @@ used_ids = feed.items[0..20].collect{|item| item.id.content}
 # And sonify them if they are new
 
 loop do
-  puts "Polling repo commits at #{Time.now.strftime('%H:%M:%S')}"
+  puts "Polling commits on '#{repo}' at #{Time.now.strftime('%H:%M:%S')}"
 
   feed.items[0..20].each do |item|
     unless used_ids.include? item.id.content

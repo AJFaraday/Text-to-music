@@ -61,7 +61,7 @@ Initially developed and tested with the bbc news headlines feed, other rss feeds
   * Set a different rss feed by changing the default feed in config.yml
   * Set a different feed as an argument (e.g. `ruby scripts/rss-feed.rb http://feeds.bbci.co.uk/news/rss.xml`)
 
-Github commit review
+GitHub commit review
 --------------------
 
 This will sonify all the commits in a github repository (currently, master branch)
@@ -72,6 +72,10 @@ starting with the most recent.
 * Optionally:
   * Set a different repo (in the style 'username/repository') in config.yml
   * Set a differnet repo as an argument (e.g. `ruby scripts/github-repo.rb rails/rails`)
+
+
+GitHub live commits
+-------------------
 
 
 Reading a file
