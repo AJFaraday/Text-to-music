@@ -71,12 +71,32 @@ starting with the most recent.
 * `ruby scripts/github-commits.rb`
 * Optionally:
   * Set a different repo (in the style 'username/repository') in config.yml
-  * Set a differnet repo as an argument (e.g. `ruby scripts/github-repo.rb rails/rails`)
+  * Set a differnet repo as an argument (e.g. `ruby scripts/github-commits.rb rails/rails`)
 
 
 GitHub live commits
 -------------------
 
+This will sonify commits of a github repository (currently, master branch) in real-time.
+
+* Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
+* `ruby scripts/github-realtime.rb`
+* Optionally:
+  * Set a different repo (in the style 'username/repository') in config.yml
+  * Set a differnet repo as an argument (e.g. `ruby scripts/github-realtime.rb rails/rails`)
+
+Limitations:
+
+If you can find solutions to these problems, feel free to fix them.
+
+This will grab the last twenty commits, then check for unused commit ids, this means that
+if more than 20 commits are pushed at the same time, some will be lost.
+
+If this ran for a long time, there would be a huge array of used commit ids in memory, which
+could slow your computer down. Perhaps some garbage collection here when unused_ids gets past a given point.
+
+This is currently making a request for the whole RSS feed every 10 seconds. This seems like a
+lot of traffic. Is there a way to poll for just the feed version or most recent post time?
 
 Reading a file
 --------------
