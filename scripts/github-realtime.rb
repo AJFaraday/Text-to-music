@@ -21,7 +21,8 @@ else
   branch = ARGV[1]
   branch ||= YAML.load_file("config.yml")['rss']['github']['branch']
 end
-puts "Sonifying repo: #{repo} branch: #{branch}"
+polling_time = YAML.load_file("config.yml")['rss']['github']['polling_time']
+puts "Sonifying repo: '#{repo}' branch: '#{branch}' with a delay of #{polling_time} seconds."
 url = "https://www.github.com/#{repo}/commits/#{branch}.atom"
 # an array of used ids, to avoid repeats
 
@@ -54,7 +55,7 @@ loop do
     end
   end
   # Wait ten seconds, then poll again
-  sleep 10
+  sleep polling_time
   feed = RSS::Parser.parse(open(url).read, false)
 end
 

@@ -64,26 +64,34 @@ Initially developed and tested with the bbc news headlines feed, other rss feeds
 GitHub commit review
 --------------------
 
-This will sonify all the commits in a github repository (currently, master branch)
-starting with the most recent.
+This will sonify all the commits in a github repository starting with the most recent.
 
 * Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
 * `ruby scripts/github-commits.rb`
 * Optionally:
-  * Set a different repo (in the style 'username/repository') in config.yml
-  * Set a differnet repo as an argument (e.g. `ruby scripts/github-commits.rb rails/rails`)
+  * Set a different repo (in the style 'username/repository')
+    * in config.yml (github: repo: )
+    * as an argument (e.g. `ruby scripts/github-commits.rb rails/rails`)
+  * Set a different branch:
+    * in config.yml (github: branch: )
+    * as an argument, after the repo (e.g. `ruby scripts/github-commits.rb rails/rails master`)
 
 
 GitHub live commits
 -------------------
 
-This will sonify commits of a github repository (currently, master branch) in real-time.
+This will sonify commits of a github repository in real-time.
 
 * Open ruby_interact.pd in puredata (make sure 'DSP' is checked)
 * `ruby scripts/github-realtime.rb`
 * Optionally:
-  * Set a different repo (in the style 'username/repository') in config.yml
-  * Set a differnet repo as an argument (e.g. `ruby scripts/github-realtime.rb rails/rails`)
+  * Set a different repo (in the style 'username/repository')
+    * in config.yml (github: repo: )
+    * as an argument (e.g. `ruby scripts/github-realtime.rb rails/rails`)
+  * Set a different branch:
+    * in config.yml (github: branch: )
+    * as an argument, after the repo (e.g. `ruby scripts/github-realtime.rb rails/rails master`)
+  * Change the time (in seconds) between checks in config.yml (github: polling_time:)
 
 Limitations:
 

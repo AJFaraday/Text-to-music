@@ -32,6 +32,7 @@ rss:
   github:
     repo: 'AJFaraday/Text-to-music'
     branch: 'master'
+    polling_time: 60
 #
 # Music settings which change it slightly. 
 #
