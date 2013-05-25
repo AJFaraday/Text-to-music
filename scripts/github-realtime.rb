@@ -31,7 +31,7 @@ url = "https://www.github.com/#{repo}/commits/#{branch}.atom"
 
 # This collects the last 21 ids and avoids these being sonified
 feed = RSS::Parser.parse(open(url).read, false)
-used_ids = feed.collect{|item| item.id.content}
+used_ids = feed.items.collect{|item| item.id.content}
 
 # This will check the last 20 commit ids against the used ids array
 # And sonify them if they are new
@@ -39,7 +39,7 @@ used_ids = feed.collect{|item| item.id.content}
 loop do
   puts "Polling commits on '#{repo}' at #{Time.now.strftime('%H:%M:%S')}"
 
-  feed.each do |item|
+  feed.items.each do |item|
     unless used_ids.include? item.id.content
       used_ids << item.id.content
       # Selecting content from feed item
