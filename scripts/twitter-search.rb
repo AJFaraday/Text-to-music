@@ -8,7 +8,7 @@
 require 'rubygems'
 require 'highline/import'
 require 'tweetstream' 
-require 'lib/pd-connect'
+require './lib/pd-connect'
 
 # Set up a port to PureData 
 pd = PureData.new

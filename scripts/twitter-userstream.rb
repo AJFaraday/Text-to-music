@@ -7,8 +7,8 @@
 
 require 'rubygems'
 require 'tweetstream' 
-require 'lib/pd-connect'
-require 'lib/twitter-auth'
+require './lib/pd-connect'
+require './lib/twitter-auth'
 
 config = YAML.load_file("config.yml")['twitter']
 consumer_key       = config['consumer_key'] if config['consumer_key'] and !config['consumer_key'].empty?

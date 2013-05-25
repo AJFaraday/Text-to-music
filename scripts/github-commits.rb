@@ -4,7 +4,7 @@
 # This is an attempt to review github commits.
 #
 
-require 'lib/pd-connect'
+require './lib/pd-connect'
 require 'yaml'
 require 'rss'
 

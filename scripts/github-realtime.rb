@@ -4,7 +4,7 @@
 # This is an attempt to sonify github commits in real time
 #
 
-require 'lib/pd-connect'
+require './lib/pd-connect'
 require 'yaml'
 require 'rss'
 

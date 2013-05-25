@@ -2,7 +2,7 @@
 # Andrew James Faraday - May 2012
 #
 
-require 'lib/pd-connect'
+require './lib/pd-connect'
 require 'yaml'
 require 'rss'
 
