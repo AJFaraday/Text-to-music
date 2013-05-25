@@ -1,7 +1,7 @@
 #
 # Andrew James Faraday - May 2013
 #
-# This is an attempt to review github commits.
+# This is an attempt to sonify github commits in real time
 #
 
 require 'lib/pd-connect'
@@ -20,17 +20,22 @@ else
 end
 puts "Sonifying repo: #{repo}"
 url = "https://www.github.com/#{repo}/commits/master.atom"
-
 # an array of used ids, to avoid repeats
-used_ids = []
- 
+
 # the actual script, will find the most recent headline,
 # if it's changed, the headline and description will be sent to pure data
 
+# This collects the last 21 ids and avoids these being sonified
+feed = RSS::Parser.parse(open(url).read, false)
+used_ids = feed.items[0..20].collect{|item| item.id.content}
+
+# This will check the last 20 commit ids against the used ids array
+# And sonify them if they are new
 
 loop do
-  feed = RSS::Parser.parse(open(url).read, false)
-  feed.items.each do |item|
+  puts "Polling repo commits at #{Time.now.strftime('%H:%M:%S')}"
+
+  feed.items[0..20].each do |item|
     unless used_ids.include? item.id.content
       used_ids << item.id.content
       # Selecting content from feed item
@@ -45,6 +50,8 @@ loop do
       sleep 1
     end
   end
+  # Wait ten seconds, then poll again
   sleep 10
+  feed = RSS::Parser.parse(open(url).read, false)
 end
 
