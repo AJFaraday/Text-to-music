@@ -9,16 +9,13 @@ require 'rubygems'
 require 'highline/import'
 require 'tweetstream' 
 require './lib/pd-connect'
+require './lib/twitter-auth'
 
 # Set up a port to PureData 
 pd = PureData.new
  
 # Load attributes from the config file
-config = YAML.load_file("config.yml")['twitter']
-consumer_key       = config['consumer_key'] if config['consumer_key'] and !config['consumer_key'].empty?
-consumer_secret    = config['consumer_secret'] if config['consumer_secret'] and !config['consumer_secret'].empty?
-oauth_token        = config['oauth_token'] if config['oauth_token'] and !config['oauth_token'].empty?
-oauth_token_secret = config['oauth_token_secret'] if config['oauth_token_secret'] and !config['oauth_token_secret'].empty?
+config = YAML.load_file("twitter.yml")
 
 search = config['default_search'].split(' ')
 # default search is set if arguments are empty
@@ -28,10 +25,7 @@ else
   search = ARGV.join ' '
 end
 
-# Fetch twitter credentials if they're not present in the config file
-unless oauth_token and oauth_token_secret
-  oauth_token, oauth_token_secret = get_twitter_auth(consumer_key, consumer_secret)
-end
+consumer_key, consumer_secret, oauth_token, oauth_token_secret = get_twitter_auth(config)
 
 # Configure TweetStream
 TweetStream.configure do |config|
