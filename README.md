@@ -124,6 +124,7 @@ Contributors
 * Peter Vandenberk (https://www.github.com/pvdb)
 * Abe Stanway(http://www.github.com/astanway)
 * Pat Nakajima(https://www.github.com/nakajima)
+* Jeremy Wentworth(https://www.github.com/jeremywen)
 
 Testers
 -------
