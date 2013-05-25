@@ -26,7 +26,8 @@ Installation
 * Make sure you have the above programs and gems.
 * Clone the git repository. (`git clone https://github.com/AJFaraday/Text-to-music.git`)
 * Make a copy of the file config.yml.template called config.yml (`cp config.yml.template config.yml`)
-* (Optional) Modify config.yml as required
+* Make a copy of the file twitter.yml.template called twitter.yml (`cp twitter.yml.template twitter.yml`)
+* (Optional) Modify config.yml and twitter.yml as required
 
 Manual Mode
 -----------
