@@ -9,7 +9,6 @@ def get_twitter_auth(config)
   oauth_token_secret = config['oauth_token_secret'] if config['oauth_token_secret'] and !config['oauth_token_secret'].empty?
 
   unless oauth_token and oauth_token_secret
-    puts 'HGHHHHHHHHHH'
     client = TwitterOAuth::Client.new(:consumer_key => consumer_key,
                                       :consumer_secret => consumer_secret)
     request_token = client.request_token()

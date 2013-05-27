@@ -1,7 +1,7 @@
 #
 # Andrew James Faraday - May 2012
 # 
-# A simple config file to avoid repeat data imput and change details as required.
+# A simple config file to avoid repeat data input and change details as required.
 # When you first install the script you will need to make a copy of this file called 'config.yml'
 #
 
@@ -11,18 +11,7 @@ connection:
   hostname: '127.0.0.1'
   port: 3939
 
-# These attributes are for the connection to twitter
-# Username and password will be prompted for if they are not pre-defined
-# The keys, tokens and secrets are for twitter 'oauth' authentication system:
-  # the consumer key and secret refer to the text-to-music app, you don't need to change these
-  # when you run the twitter userstream script you will be prompted to authorize your user for the text-to-music app, then the oauth_token and oauth_token_secret will be provided
-# The default search will be used if one is not input on the command line.
-twitter:
-  consumer_key: I9bnoRdRPzhAdxdlAy7Qw
-  consumer_secret: t1a6rX1bza1lZuN1ARIrwraRvzpDFIhhL94mdNhtFY
-  oauth_token:
-  oauth_token_secret: 
-  default_search: 'fail' 
+# Attributes for Twitter have been moved out to twitter.yml (you may need to copy this from twitter.yml.template
 
 #
 # The default feed url for the rss aggregator
@@ -34,7 +23,7 @@ rss:
     branch: 'master'
     polling_time: 60
 #
-# Music settings which change it slightly. 
+# Music settings: 
 #
 # transpose denotes the semitones up or down the letter and number notes will be moved by.
 # speed is the time from one note to the next being triggered
