@@ -43,12 +43,18 @@ class PureData
     end
   end
 
+  def reload_music_params
+    config = YAML.load_file('config.yml')
+    self.music = config['music']
+  end
+
   #
   # Accepts a string and separates it into it's individual characters and a speed (actually a rest time in seconds)
   # Outputs characters to the console one by one (typewriter effect)
   # Outputs suitable commands to the pure data patch
   # 
   def send_string(string,speed=nil)
+    reload_music_params
     speed ||= music['speed']
     string.chars.each do |c|
       print c
